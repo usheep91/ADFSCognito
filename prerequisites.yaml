@@ -10,8 +10,10 @@ Resources:
   WebsiteBucket:
     Type: AWS::S3::Bucket
     Properties:
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
       BucketName: !Ref BucketName
-      AccessControl: PublicRead
       WebsiteConfiguration:
         IndexDocument: index.html
     DeletionPolicy: Retain
